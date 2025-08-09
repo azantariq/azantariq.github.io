@@ -1,156 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Azan | Front-End Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azan Fitness</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
-      color: #333;
+      /* background: url("bg.jpg") no-repeat center center/cover; */
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 30px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
     }
 
-    header h1 {
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .left img {
+      width: 80px;
+      filter: invert(100%);
+    }
+
+    .left div {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .mid {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar {
+      list-style: none;
+      padding: 0;
       margin: 0;
-      font-size: 2rem;
-    }
-
-    header p {
-      margin-top: 5px;
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    .projects {
-      max-width: 1100px;
-      margin: 40px auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display: flex;
       gap: 20px;
-      padding: 0 20px;
     }
 
-    .project-card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .project-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .project-info {
-      padding: 15px;
-    }
-
-    .project-info h3 {
-      margin-top: 0;
-    }
-
-    .project-info p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .buttons {
-      margin-top: 15px;
-    }
-
-    .buttons a {
-      text-decoration: none;
+    .navbar li a {
       color: white;
-      background-color: #222;
-      padding: 8px 12px;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      margin-right: 10px;
-      display: inline-block;
-      transition: background-color 0.2s ease;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px;
     }
 
-    .buttons a:hover {
-      background-color: #555;
+    .navbar li a:hover,
+    .navbar li a.active {
+      text-decoration: underline;
+      color: grey;
     }
 
-    footer {
+    .right {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      background-color: black;
+      color: white;
+      padding: 7px 15px;
+      border: 2px solid grey;
+      border-radius: 10px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: rgb(59, 58, 58);
+    }
+
+    /* Flex container for the form section */
+    .main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 2px solid white;
+      padding: 40px 20px;
+      width: 30%;
+      border-radius: 20px;
+    }
+
+    .container h1 {
       text-align: center;
-      padding: 20px;
-      font-size: 0.85rem;
-      color: #888;
-      border-top: 1px solid #ddd;
-      margin-top: 40px;
+      margin-bottom: 30px;
     }
 
-    @media(max-width: 500px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
+    .form-group input {
+      display: block;
+      width: 80%;
+      padding: 10px;
+      margin: 10px auto;
+      font-size: 16px;
+      border: 2px solid black;
+      border-radius: 8px;
+      text-align: center;
     }
+
+    .container button {
+      display: block;
+      width: 60%;
+      margin: 20px auto 0;
+    }
+    .bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  opacity: 0.9; /* Lower = dimmer background */
+  z-index: -1;   /* Send it behind all content */
+}
+
   </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Azan</h1>
-    <p>Front-End Developer | HTML, CSS, JavaScript</p>
+  <img src="bg.jpg" class="bg-img" alt="Background Image" />
+
+  <header class="header">
+    <div class="left">
+      <img src="gym.png" alt="Gym Logo" />
+      <div>Azan Fitness</div>
+    </div>
+
+    <div class="mid">
+      <ul class="navbar">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Fitness Calculator</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </div>
+
+    <div class="right">
+      <button class="btn">Call Us Now</button>
+      <button class="btn">Email Us</button>
+    </div>
   </header>
 
-  <section class="projects">
-
-    <!-- Project 1 -->
-    <div class="project-card">
-      <img src="azan-fitness-thumbnail.png" alt="Azan Fitness Project">
-      <div class="project-info">
-        <h3>Azan Fitness</h3>
-        <p>A responsive gym landing page with a sign-up form.</p>
-        <div class="buttons">
-          <a href="https://your-live-link.com" target="_blank">View Live</a>
-          <a href="https://github.com/yourusername/azan-fitness" target="_blank">View Code</a>
+  <div class="main">
+    <div class="container">
+      <h1>Join Our Best Gym</h1>
+      <form action="noaction.php">
+        <div class="form-group">
+          <input type="text" placeholder="Enter Your Name" />
         </div>
-      </div>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="project-card">
-      <img src="project2-thumbnail.jpg" alt="Project 2">
-      <div class="project-info">
-        <h3>Project 2</h3>
-        <p>Short description of your second project.</p>
-        <div class="buttons">
-          <a href="https://your-live-link.com" target="_blank">View Live</a>
-          <a href="https://github.com/yourusername/project2" target="_blank">View Code</a>
+        <div class="form-group">
+          <input type="text" placeholder="Enter Your Age" />
         </div>
-      </div>
+        <div class="form-group">
+          <input type="text" placeholder="Enter Your Gender" />
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Enter Your Contact Number" />
+        </div>
+        <button class="btn">Submit</button>
+      </form>
     </div>
-
-  </section>
-
-  <footer>
-    &copy; 2025 Azan. All Rights Reserved.
-  </footer>
-
+  </div>
 </body>
 </html>
